@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ann_Akhigbe_Ayomide_S2004865</string>
+    <string name="weather">Weather</string>
+    <string name="aid">AID</string>
 </resources>

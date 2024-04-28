@@ -2,6 +2,7 @@ package com.example.ann_akhigbe_ayomide_s2004865.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.ann_akhigbe_ayomide_s2004865.R;
 import com.example.ann_akhigbe_ayomide_s2004865.databinding.FragmentWeatherForecastBinding;
 import com.example.ann_akhigbe_ayomide_s2004865.model.data.WeatherData;
+import com.example.ann_akhigbe_ayomide_s2004865.model.data.WeatherDataDto;
 import com.example.ann_akhigbe_ayomide_s2004865.model.data.WeatherForecast;
 import com.example.ann_akhigbe_ayomide_s2004865.ui.viewmodel.WeatherViewModel;
 import com.example.ann_akhigbe_ayomide_s2004865.utilities.Result;
@@ -45,7 +47,6 @@ public class WeatherForecastFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentWeatherForecastBinding.inflate(inflater, container, false);
         locationId = getArguments().getString(ARG_PARAM, "");
-        binding.rootLayout.setBackgroundColor(Utilities.getMainViewColor());
         return binding.getRoot();
     }
 
