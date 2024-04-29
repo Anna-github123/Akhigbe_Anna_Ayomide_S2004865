@@ -17,8 +17,6 @@ import com.example.ann_akhigbe_ayomide_s2004865.databinding.ActivitySplashScreen
 // Programme of Study: Mobile Platform Development
 public class SplashScreen extends AppCompatActivity {
     private ActivitySplashScreenBinding binding;
-    private Animation topAnimation;
-    private Animation bottomAnimation;
 
 
     @Override
@@ -42,8 +40,8 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     void setupDisplayAnimation() {
-        topAnimation = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.upward_animation);
-        bottomAnimation = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.bottom_animation);
+        Animation topAnimation = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.upward_animation);
+        Animation bottomAnimation = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.bottom_animation);
         binding.logo.setAnimation(topAnimation);
         binding.weather.setAnimation(bottomAnimation);
     }

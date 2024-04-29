@@ -17,22 +17,6 @@ public class WeatherDataDto {
         return humidity;
     }
 
-    public String getMaxTemperature() {
-        return maxTemperature;
-    }
-
-    public String getMinTemperature() {
-        return minTemperature;
-    }
-
-    public String getSunrise() {
-        return sunrise;
-    }
-
-    public String getSunset() {
-        return sunset;
-    }
-
     public WeatherDataDto(String dataString) {
         String[] parts = dataString.split(", ");
 
@@ -77,21 +61,5 @@ public class WeatherDataDto {
                     break;
             }
         }
-    }
-    public String displayWeather() {
-
-        String stringBuilder = "Maximum Temperature: " + maxTemperature + "\n" +
-                "Minimum Temperature: " + minTemperature + "\n" +
-                "Wind Direction: " + windDirection + "\n" +
-                "Wind Speed: " + windSpeed + "\n" +
-                "Visibility: " + visibility + "\n" +
-                "Pressure: " + pressure + "\n" +
-                "Humidity: " + humidity + "\n" +
-                "UV Risk: " + uvRisk + "\n" +
-                "Pollution: " + pollution + "\n" +
-                "Sunrise: " + sunrise + "\n" +
-                "Sunset: " + sunset + "\n";
-
-        return stringBuilder;
     }
 }

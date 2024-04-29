@@ -71,6 +71,7 @@ public class WeatherForecastFragment extends Fragment {
             if (weatherDataResult instanceof Result.Success) {
                 currentItem = ((Result.Success<WeatherData>) weatherDataResult).data;
               //  binding.title.setText(currentItem.getTitle());
+                assert binding.plainHeader != null;
                 binding.plainHeader.location.setText(getLastTwoStrings(currentItem.getTitle()));
                // binding.description.setText(currentItem.getDescription());
                 display3DaysForecast(currentItem.getThreeDaysForecast());
