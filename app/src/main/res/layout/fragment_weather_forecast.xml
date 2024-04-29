@@ -53,6 +53,7 @@
             android:layout_marginTop="10dp"
             android:elevation="4dp"
             android:padding="6dp"
+            android:visibility="gone"
             app:cardBackgroundColor="@color/trans"
             app:cardCornerRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"

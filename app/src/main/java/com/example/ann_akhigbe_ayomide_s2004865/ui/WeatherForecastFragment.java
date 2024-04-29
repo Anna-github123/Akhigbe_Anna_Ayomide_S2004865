@@ -72,9 +72,9 @@ public class WeatherForecastFragment extends Fragment {
         viewModel.getWeatherForecast(locationId);
         viewModel.getThreeDaysWeatherForecastResult().observe(getViewLifecycleOwner(), weatherDataResult -> {
             binding.progress.setVisibility(View.GONE);
+            binding.day0Forecast.setVisibility(View.VISIBLE);
             if (weatherDataResult instanceof Result.Success) {
                 currentItem = ((Result.Success<WeatherData>) weatherDataResult).data;
-                assert binding.plainHeader != null;
                 binding.plainHeader.location.setText(getLastTwoStrings(currentItem.getTitle()));
                 binding.plainHeader.date.setText(getCurrentDate());
                 binding.rootLayout.setBackground(getResources().getDrawable(getBackGroundImage(getLastTwoStrings(currentItem.getTitle()))));
@@ -140,11 +140,21 @@ public class WeatherForecastFragment extends Fragment {
         return fragment;
     }
     public static String getLastTwoStrings(String inputString) {
-        String[] parts = inputString.split(" ");
-        if (parts.length >= 2) {
-            return parts[parts.length - 2] + " " + parts[parts.length - 1];
-        } else {
-            return "";
+        // Split the input string by spaces
+        String[] words = inputString.split(" ");
+
+        // Iterate through the words in reverse order
+        StringBuilder reversed = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            // If the current word is "For", stop iterating
+            if (words[i].equals("for")) {
+                break;
+            }
+            // Otherwise, append the word and a space to the result
+            reversed.insert(0, words[i] + " ");
         }
+
+        // Remove the trailing space and return the reversed string
+        return reversed.toString().trim();
     }
 }
