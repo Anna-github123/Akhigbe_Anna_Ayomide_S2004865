@@ -71,7 +71,6 @@ public class WeatherForecastFragment extends Fragment {
             binding.progress.setVisibility(View.GONE);
             if (weatherDataResult instanceof Result.Success) {
                 currentItem = ((Result.Success<WeatherData>) weatherDataResult).data;
-              //  binding.title.setText(currentItem.getTitle());
                 assert binding.plainHeader != null;
                 binding.plainHeader.location.setText(getLastTwoStrings(currentItem.getTitle()));
                 binding.plainHeader.date.setText(getCurrentDate());
@@ -85,13 +84,11 @@ public class WeatherForecastFragment extends Fragment {
     }
 
     private void display3DaysForecast(List<WeatherForecast> forecasts) {
-       // binding.titleDay0.setText(forecasts.get(0).getTitle());
-        // binding.descriptionDay0.setText(forecasts.get(0).getDescription());
 
         WeatherInfo weatherInfo = new WeatherInfo(forecasts.get(0).getTitle());
         WeatherDataDto weatherData = new WeatherDataDto(forecasts.get(0).getDescription());
 
-        Log.d("God", forecasts.get(0).getTitle());
+        assert binding.plainView != null;
         binding.plainView.cloudCondition.setText(weatherInfo.getWeatherCondition());
         binding.plainView.weatherDay.setText(weatherInfo.getDay());
         binding.plainView.cloudHumidity.setText(getString(R.string.humidity_20,weatherData.getHumidity()));
@@ -100,11 +97,9 @@ public class WeatherForecastFragment extends Fragment {
         binding.plainView.rangeTemp.setText(getString(R.string.min_max, weatherInfo.getMinTemperature(), weatherInfo.getMaxTemperature()));
 
         // 2nd
-
         WeatherInfo weatherInfo1 = new WeatherInfo(forecasts.get(1).getTitle());
         WeatherDataDto weatherData1 = new WeatherDataDto(forecasts.get(1).getDescription());
 
-        Log.d("God", forecasts.get(0).getTitle());
         assert binding.plainView1 != null;
         binding.plainView1.parentLayout.setBackgroundColor(getResources().getColor(R.color.blue));
         binding.plainView1.cloudCondition.setText(weatherInfo1.getWeatherCondition());
@@ -115,14 +110,11 @@ public class WeatherForecastFragment extends Fragment {
         binding.plainView1.rangeTemp.setText(getString(R.string.min_max, weatherInfo1.getMinTemperature(), weatherInfo1.getMaxTemperature()));
 
         // 3rd
-
-        assert binding.plainView2 != null;
-        binding.plainView2.parentLayout.setBackgroundColor(getResources().getColor(R.color.blue_dark));
         WeatherInfo weatherInfo2 = new WeatherInfo(forecasts.get(2).getTitle());
         WeatherDataDto weatherData2 = new WeatherDataDto(forecasts.get(2).getDescription());
 
-       //God Log.d("God", weatherInfo2.getMaxTemperature());
-        Log.d("God2", forecasts.get(2).getTitle());
+        assert binding.plainView2 != null;
+        binding.plainView2.parentLayout.setBackgroundColor(getResources().getColor(R.color.blue_dark));
         binding.plainView2.cloudCondition.setText(weatherInfo2.getWeatherCondition());
         binding.plainView2.weatherDay.setText(weatherInfo2.getDay());
         binding.plainView2.cloudImg.setImageResource(getTempsImage(weatherInfo2.getWeatherCondition()));

@@ -45,9 +45,4 @@ public class WeatherData {
         this.threeDaysForecast = threeDaysForecast;
     }
 
-//    @NonNull
-//    @Override
-//    public String toString() {
-//        return title + " " + description + " " + publishedOn + " threeDaysForecast is " + threeDaysForecast.size();
-//    }
 }
