@@ -2,6 +2,8 @@ package com.example.ann_akhigbe_ayomide_s2004865.utilities;
 
 import com.example.ann_akhigbe_ayomide_s2004865.R;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 
@@ -29,6 +31,27 @@ public class Utilities {
         } else {
             return R.drawable.hi_there;
         }
+    }
+
+    public static String getCurrentDate(){
+        // Get the current date
+        String formattedDate = "";
+        LocalDate currentDate = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            currentDate = LocalDate.now();
+        }
+
+        // Create a formatter for the desired format
+        DateTimeFormatter formatter = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        }
+
+        // Format the current date using the formatter
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+           formattedDate = currentDate.format(formatter);
+        }
+        return  formattedDate;
     }
 
     public static int getTempsImage(String cloudCondition) {
@@ -63,6 +86,36 @@ public class Utilities {
         }
 
         return cloud;
+
+
+    }
+
+    public static int getBackGroundImage(String city) {
+
+        int cityBg;
+
+        switch (city) {
+            case "Dhaka, BD":
+                cityBg = R.drawable.dhaka;
+                break;
+            case "Louis, MU":
+                cityBg= R.drawable.mauritus;
+                break;
+            case "Muscat, OM":
+                cityBg = R.drawable.muskat;
+                break;
+            case "York, US":
+                cityBg = R.drawable.new_york;
+                break;
+            case "Glasgow, GB":
+                cityBg = R.drawable.glasgow;
+                break;
+            default:
+                cityBg = R.drawable.london;
+                break;
+        }
+
+        return cityBg;
 
 
     }

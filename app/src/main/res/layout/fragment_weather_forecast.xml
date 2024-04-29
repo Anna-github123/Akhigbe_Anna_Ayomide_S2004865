@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/london"
     android:id="@+id/root_layout"
     android:paddingBottom="6dp"
     tools:context=".ui.WeatherForecastFragment">
@@ -30,18 +31,11 @@
                 app:expandedTitleTextAppearance="@style/AppTheme.Title.Expanded"
                 app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
 
-                <ImageView
-                    android:id="@+id/greeting_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/good_morning" />
+
 
                 <ImageView
                     android:id="@+id/nav_icon"
                     android:clickable="true"
-                    android:visibility="gone"
                     android:layout_gravity="end"
                     android:layout_margin="10dp"
                     android:background="@drawable/text_background"
@@ -59,7 +53,7 @@
             android:layout_marginTop="10dp"
             android:elevation="4dp"
             android:padding="6dp"
-            app:cardBackgroundColor="@color/blue"
+            app:cardBackgroundColor="@color/trans"
             app:cardCornerRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

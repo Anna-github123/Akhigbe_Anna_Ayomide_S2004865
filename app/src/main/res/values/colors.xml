@@ -14,10 +14,11 @@
 
 
     <color name="green">#81AA84</color>
+    <color name="trans">#00000000</color>
     <color name="green_dark">#5B755B</color>
     <color name="green_light">#A5D6A7</color>
-    <color name="blue">#0288D1</color>
-    <color name="blue_dark">#005B9F</color>
+    <color name="blue">#800288D1</color>
+    <color name="blue_dark">#99005B9F</color>
     <color name="blue_light">#81D4FA</color>
     <color name="good_afternoon">#2C492C</color>
 

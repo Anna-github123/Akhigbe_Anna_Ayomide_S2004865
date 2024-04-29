@@ -1,5 +1,7 @@
 package com.example.ann_akhigbe_ayomide_s2004865.ui;
 
+import static com.example.ann_akhigbe_ayomide_s2004865.utilities.Utilities.getBackGroundImage;
+import static com.example.ann_akhigbe_ayomide_s2004865.utilities.Utilities.getCurrentDate;
 import static com.example.ann_akhigbe_ayomide_s2004865.utilities.Utilities.getTempsImage;
 
 import android.content.Intent;
@@ -56,7 +58,6 @@ public class WeatherForecastFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.greetingImg.setImageResource(Utilities.getGreetingsImage());
         binding.navIcon.setOnClickListener(view1 -> {
             Intent intent = new Intent(requireActivity(), LatestWeatherObservationActivity.class);
             intent.putExtra(LOCATION_ID, locationId);
@@ -73,7 +74,8 @@ public class WeatherForecastFragment extends Fragment {
               //  binding.title.setText(currentItem.getTitle());
                 assert binding.plainHeader != null;
                 binding.plainHeader.location.setText(getLastTwoStrings(currentItem.getTitle()));
-               // binding.description.setText(currentItem.getDescription());
+                binding.plainHeader.date.setText(getCurrentDate());
+                binding.rootLayout.setBackground(getResources().getDrawable(getBackGroundImage(getLastTwoStrings(currentItem.getTitle()))));
                 display3DaysForecast(currentItem.getThreeDaysForecast());
                 binding.navIcon.setVisibility(View.VISIBLE);
             } else {
