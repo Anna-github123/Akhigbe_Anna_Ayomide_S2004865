@@ -1,11 +1,13 @@
 package com.example.ann_akhigbe_ayomide_s2004865.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.ann_akhigbe_ayomide_s2004865.R;
 import com.example.ann_akhigbe_ayomide_s2004865.model.data.WeatherData;
 import com.example.ann_akhigbe_ayomide_s2004865.databinding.ActivityLatestWeatherObservationBinding;
 import com.example.ann_akhigbe_ayomide_s2004865.ui.viewmodel.WeatherViewModel;
@@ -32,6 +34,7 @@ public class LatestWeatherObservationActivity extends AppCompatActivity {
         String locationId = getIntent().getStringExtra(WeatherForecastFragment.LOCATION_ID);
         double latitude = getIntent().getDoubleExtra(WeatherForecastFragment.LATITUDE, 0.0);
         double longitude = getIntent().getDoubleExtra(WeatherForecastFragment.LONGITUDE, 0.0);
+        String location = getIntent().getStringExtra(WeatherForecastFragment.LOCATION);
 
         WeatherViewModel viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
         viewModel.getLatestWeatherForecast(locationId);
@@ -40,6 +43,8 @@ public class LatestWeatherObservationActivity extends AppCompatActivity {
             if (weatherDataResult instanceof Result.Success) {
                 WeatherData weatherData = ((Result.Success<WeatherData>) weatherDataResult).data;
                 binding.title.setText(weatherData.getTitle());
+                Log.d("God", weatherData.getTitle());
+                binding.title.setText(getString(R.string.location, weatherData.getTitle(), location));
                 binding.description.setText(weatherData.getDescription());
                 binding.publishedOn.setText(String.format("Published On: %s", weatherData.getPublishedOn()));
                 binding.titleDay0.setText(weatherData.getThreeDaysForecast().get(0).getTitle());

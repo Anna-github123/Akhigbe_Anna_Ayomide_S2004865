@@ -39,6 +39,8 @@ public class WeatherForecastFragment extends Fragment {
     public static final String LATITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
 
+    public static final String LOCATION = "location";
+
     private WeatherData currentItem;
     private String locationId = "";
 
@@ -63,6 +65,7 @@ public class WeatherForecastFragment extends Fragment {
             intent.putExtra(LOCATION_ID, locationId);
             intent.putExtra(LATITUDE, currentItem.getThreeDaysForecast().get(0).getLatitude());
             intent.putExtra(LONGITUDE, currentItem.getThreeDaysForecast().get(0).getLongitude());
+            intent.putExtra(LOCATION, getLastTwoStrings(currentItem.getTitle()));
             startActivity(intent);
         });
         WeatherViewModel viewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);

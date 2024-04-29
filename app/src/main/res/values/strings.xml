@@ -7,4 +7,5 @@
     <string name="min_temp">%1$s\u2103</string>
     <string name="weather_aid">Weather Aid</string>
     <string name="cloud_condition">cloud condition</string>
+    <string name="location">%1$s %2$s</string>
 </resources>
