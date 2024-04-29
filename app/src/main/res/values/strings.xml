@@ -2,4 +2,7 @@
     <string name="app_name">Ann_Akhigbe_Ayomide_S2004865</string>
     <string name="weather">Weather</string>
     <string name="aid">AID</string>
+    <string name="humidity_20">Humidity %1$s</string>
+    <string name="min_max">%1$s\u2103 ~ %2$s\u2103</string>
+    <string name="min_temp">%1$s\u2103</string>
 </resources>

@@ -13,6 +13,26 @@ public class WeatherDataDto {
     private String sunrise;
     private String sunset;
 
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public String getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    public String getMinTemperature() {
+        return minTemperature;
+    }
+
+    public String getSunrise() {
+        return sunrise;
+    }
+
+    public String getSunset() {
+        return sunset;
+    }
+
     public WeatherDataDto(String dataString) {
         String[] parts = dataString.split(", ");
 

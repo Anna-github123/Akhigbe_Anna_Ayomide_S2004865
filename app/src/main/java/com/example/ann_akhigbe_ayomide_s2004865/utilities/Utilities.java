@@ -31,6 +31,42 @@ public class Utilities {
         }
     }
 
+    public static int getTempsImage(String cloudCondition) {
+
+         int cloud;
+
+        switch (cloudCondition) {
+            case "Light Rain":
+                cloud = R.drawable.rain;
+                break;
+            case "Clear Sky":
+                cloud = R.drawable.cloudy;
+                break;
+            case "Drizzle":
+                cloud = R.drawable.dri_sleet;
+                break;
+            case "Light Cloud":
+                cloud = R.drawable.overcast;
+                break;
+            case "Light Rain Showers":
+                cloud = R.drawable.day_rain;
+                break;
+            case "Heavy Rain Showers":
+                cloud = R.drawable.heavy_rain_thunder;
+                break;
+            case "Sunny Intervals":
+                cloud = R.drawable.sunny_interval_cloud;
+                break;
+            default:
+                cloud = R.drawable.day_clear;
+                break;
+        }
+
+        return cloud;
+
+
+    }
+
     // Returns a particular theme depending on the time of the day
     public static int getApplicationTheme() {
         Calendar calendar = Calendar.getInstance();
